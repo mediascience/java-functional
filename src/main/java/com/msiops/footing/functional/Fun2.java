@@ -19,8 +19,9 @@ package com.msiops.footing.functional;
 import java.util.function.Function;
 
 @FunctionalInterface
-public interface Fun2<T1, T2, R> {
+public interface Fun2<T1, T2, R> extends Function<T1, Function<T2, R>> {
 
+    @Override
     default Function<T2, R> apply(final T1 t1) {
         return t2 -> apply(t1, t2);
     }
