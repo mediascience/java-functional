@@ -28,43 +28,46 @@ import com.msiops.footing.functional.Fun5;
 public class SimpleFunTest {
 
     private static final Fun2<Integer, Integer, Integer> F2 = (t1, t2) -> t1
-            + t2;
+            * 211 + t2 * 223;
 
     private static final Fun3<Integer, Integer, Integer, Integer> F3 = (t1, t2,
-            t3) -> t1 + t2 + t3;
+            t3) -> t1 * 211 + t2 * 223 + t3 * 227;
 
     private static final Fun4<Integer, Integer, Integer, Integer, Integer> F4 = (
-            t1, t2, t3, t4) -> t1 + t2 + t3 + t4;
+            t1, t2, t3, t4) -> t1 * 211 + t2 * 223 + t3 * 227 + t4 * 229;
 
     private static final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> F5 = (
-            t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
+            t1, t2, t3, t4, t5) -> t1 * 211 + t2 * 223 + t3 * 227 + t4 * 229
+            + t5 * 233;
 
     @Test
     public void testFun2() {
 
-        assertEquals(7 + 11, F2.apply(7, 11).intValue());
+        assertEquals(7 * 211 + 11 * 223, F2.apply(7, 11).intValue());
 
     }
 
     @Test
     public void testFun3() {
 
-        assertEquals(7 + 11 + 13, F3.apply(7, 11, 13).intValue());
+        assertEquals(7 * 211 + 11 * 223 + 13 * 227, F3.apply(7, 11, 13)
+                .intValue());
 
     }
 
     @Test
     public void testFun4() {
 
-        assertEquals(7 + 11 + 13 + 17, F4.apply(7, 11, 13, 17).intValue());
+        assertEquals(7 * 211 + 11 * 223 + 13 * 227 + 17 * 229,
+                F4.apply(7, 11, 13, 17).intValue());
 
     }
 
     @Test
     public void testFun5() {
 
-        assertEquals(7 + 11 + 13 + 17 + 19, F5.apply(7, 11, 13, 17, 19)
-                .intValue());
+        assertEquals(7 * 211 + 11 * 223 + 13 * 227 + 17 * 229 + 19 * 233, F5
+                .apply(7, 11, 13, 17, 19).intValue());
     }
 
     @Test
