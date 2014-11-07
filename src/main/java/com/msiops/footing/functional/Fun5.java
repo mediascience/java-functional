@@ -23,6 +23,18 @@ public interface Fun5<T1, T2, T3, T4, T5, R> {
         return (t2, t3, t4, t5) -> apply(t1, t2, t3, t4, t5);
     }
 
+    default Fun3<T3, T4, T5, R> apply(final T1 t1, final T2 t2) {
+        return (t3, t4, t5) -> apply(t1, t2, t3, t4, t5);
+    }
+
+    default Fun2<T4, T5, R> apply(final T1 t1, final T2 t2, final T3 t3) {
+        return (t4, t5) -> apply(t1, t2, t3, t4, t5);
+    }
+
+    default Fun1<T5, R> apply(final T1 t1, final T2 t2, final T3 t3, final T4 t4) {
+        return (t5) -> apply(t1, t2, t3, t4, t5);
+    }
+
     R apply(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5);
 
 }
