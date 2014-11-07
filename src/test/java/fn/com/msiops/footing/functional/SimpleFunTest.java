@@ -28,190 +28,126 @@ import com.msiops.footing.functional.Fun5;
 
 public class SimpleFunTest {
 
+    private static final Fun1<Integer, Integer> F1 = t1 -> t1;
+
+    private static final Fun2<Integer, Integer, Integer> F2 = (t1, t2) -> t1
+            + t2;
+
+    private static final Fun3<Integer, Integer, Integer, Integer> F3 = (t1, t2,
+            t3) -> t1 + t2 + t3;
+
+    private static final Fun4<Integer, Integer, Integer, Integer, Integer> F4 = (
+            t1, t2, t3, t4) -> t1 + t2 + t3 + t4;
+
+    private static final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> F5 = (
+            t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
+
     @Test
     public void testFun1() {
 
-        final Object r = new Object();
-
-        final Fun1<Object, Object> f = t1 -> r;
-
-        assertEquals(r, f.apply(new Object()));
+        assertEquals(7, F1.apply(7).intValue());
 
     }
 
     @Test
     public void testFun2() {
 
-        final Object r = new Object();
-
-        final Fun2<Object, Object, Object> f = (t1, t2) -> r;
-
-        assertEquals(r, f.apply(new Object(), new Object()));
+        assertEquals(7 + 11, F2.apply(7, 11).intValue());
 
     }
 
     @Test
     public void testFun3() {
 
-        final Object r = new Object();
-
-        final Fun3<Object, Object, Object, Object> f = (t1, t2, t3) -> r;
-
-        assertEquals(r, f.apply(new Object(), new Object(), new Object()));
+        assertEquals(7 + 11 + 13, F3.apply(7, 11, 13).intValue());
 
     }
 
     @Test
     public void testFun4() {
 
-        final Object r = new Object();
-
-        final Fun4<Object, Object, Object, Object, Object> f = (t1, t2, t3, t4) -> r;
-
-        assertEquals(r,
-                f.apply(new Object(), new Object(), new Object(), new Object()));
+        assertEquals(7 + 11 + 13 + 17, F4.apply(7, 11, 13, 17).intValue());
 
     }
 
     @Test
     public void testFun5() {
 
-        final Object r = new Object();
-
-        final Fun5<Object, Object, Object, Object, Object, Object> f = (t1, t2,
-                t3, t4, t5) -> r;
-
-        assertEquals(r, f.apply(new Object(), new Object(), new Object(),
-                new Object(), new Object()));
-
+        assertEquals(7 + 11 + 13 + 17 + 19, F5.apply(7, 11, 13, 17, 19)
+                .intValue());
     }
 
     @Test
     public void testReduceFun2By1() {
 
-        final Fun2<Integer, Integer, Integer> f = (t1, t2) -> t1 + t2;
-
-        final int expected = f.apply(7, 11);
-        final int actual = f.apply(7).apply(11);
-
-        assertEquals(expected, actual);
+        assertEquals(F2.apply(7, 11), F2.apply(7).apply(11));
 
     }
 
     @Test
     public void testReduceFun3By1() {
 
-        final Fun3<Integer, Integer, Integer, Integer> f = (t1, t2, t3) -> t1
-                + t2 + t3;
-
-        final int expected = f.apply(7, 11, 13);
-        final int actual = f.apply(7).apply(11, 13);
-
-        assertEquals(expected, actual);
+        assertEquals(F3.apply(7, 11, 13), F3.apply(7).apply(11, 13));
 
     }
 
     @Test
     public void testReduceFun3By2() {
 
-        final Fun3<Integer, Integer, Integer, Integer> f = (t1, t2, t3) -> t1
-                + t2 + t3;
-
-        final int expected = f.apply(7, 11, 13);
-        final int actual = f.apply(7, 11).apply(13);
-
-        assertEquals(expected, actual);
+        assertEquals(F3.apply(7, 11, 13), F3.apply(7, 11).apply(13));
 
     }
 
     @Test
     public void testReduceFun4By1() {
 
-        final Fun4<Integer, Integer, Integer, Integer, Integer> f = (t1, t2,
-                t3, t4) -> t1 + t2 + t3 + t4;
-
-        final int expected = f.apply(7, 11, 13, 17);
-        final int actual = f.apply(7).apply(11, 13, 17);
-
-        assertEquals(expected, actual);
+        assertEquals(F4.apply(7, 11, 13, 17), F4.apply(7).apply(11, 13, 17));
 
     }
 
     @Test
     public void testReduceFun4By2() {
 
-        final Fun4<Integer, Integer, Integer, Integer, Integer> f = (t1, t2,
-                t3, t4) -> t1 + t2 + t3 + t4;
-
-        final int expected = f.apply(7, 11, 13, 17);
-        final int actual = f.apply(7, 11).apply(13, 17);
-
-        assertEquals(expected, actual);
+        assertEquals(F4.apply(7, 11, 13, 17), F4.apply(7, 11).apply(13, 17));
 
     }
 
     @Test
     public void testReduceFun4By3() {
 
-        final Fun4<Integer, Integer, Integer, Integer, Integer> f = (t1, t2,
-                t3, t4) -> t1 + t2 + t3 + t4;
-
-        final int expected = f.apply(7, 11, 13, 17);
-        final int actual = f.apply(7, 11, 13).apply(17);
-
-        assertEquals(expected, actual);
+        assertEquals(F4.apply(7, 11, 13, 17), F4.apply(7, 11, 13).apply(17));
 
     }
 
     @Test
     public void testReduceFun5By1() {
 
-        final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
-                t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
-
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7).apply(11, 13, 17, 19);
-
-        assertEquals(expected, actual);
+        assertEquals(F5.apply(7, 11, 13, 17, 19),
+                F5.apply(7).apply(11, 13, 17, 19));
 
     }
 
     @Test
     public void testReduceFun5By2() {
 
-        final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
-                t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
-
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7, 11).apply(13, 17, 19);
-
-        assertEquals(expected, actual);
+        assertEquals(F5.apply(7, 11, 13, 17, 19),
+                F5.apply(7, 11).apply(13, 17, 19));
 
     }
 
     @Test
     public void testReduceFun5By3() {
 
-        final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
-                t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
-
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7, 11, 13).apply(17, 19);
-
-        assertEquals(expected, actual);
+        assertEquals(F5.apply(7, 11, 13, 17, 19),
+                F5.apply(7, 11, 13).apply(17, 19));
 
     }
 
     @Test
     public void testReduceFun5By4() {
 
-        final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
-                t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
-
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7, 11, 13, 17).apply(19);
-
-        assertEquals(expected, actual);
+        assertEquals(F5.apply(7, 11, 13, 17, 19), F5.apply(7, 11, 13, 17)
+                .apply(19));
 
     }
 
