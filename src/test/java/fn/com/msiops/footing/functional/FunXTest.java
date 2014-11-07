@@ -26,7 +26,7 @@ import com.msiops.footing.functional.Fun3;
 import com.msiops.footing.functional.Fun4;
 import com.msiops.footing.functional.Fun5;
 
-public class SimpleFunTest {
+public class FunXTest {
 
     @Test
     public void testFun1() {
@@ -130,8 +130,8 @@ public class SimpleFunTest {
         final Fun4<Integer, Integer, Integer, Integer, Integer> f = (t1, t2,
                 t3, t4) -> t1 + t2 + t3 + t4;
 
-        final int expected = f.apply(7, 11, 13, 17);
-        final int actual = f.apply(7).apply(11, 13, 17);
+        final int expected = f.apply(7, 11, 13, 19);
+        final int actual = f.apply(7).apply(11, 13, 19);
 
         assertEquals(expected, actual);
 
@@ -143,8 +143,8 @@ public class SimpleFunTest {
         final Fun4<Integer, Integer, Integer, Integer, Integer> f = (t1, t2,
                 t3, t4) -> t1 + t2 + t3 + t4;
 
-        final int expected = f.apply(7, 11, 13, 17);
-        final int actual = f.apply(7, 11).apply(13, 17);
+        final int expected = f.apply(7, 11, 13, 19);
+        final int actual = f.apply(7, 11).apply(13, 19);
 
         assertEquals(expected, actual);
 
@@ -156,8 +156,8 @@ public class SimpleFunTest {
         final Fun4<Integer, Integer, Integer, Integer, Integer> f = (t1, t2,
                 t3, t4) -> t1 + t2 + t3 + t4;
 
-        final int expected = f.apply(7, 11, 13, 17);
-        final int actual = f.apply(7, 11, 13).apply(17);
+        final int expected = f.apply(7, 11, 13, 19);
+        final int actual = f.apply(7, 11, 13).apply(19);
 
         assertEquals(expected, actual);
 
@@ -169,8 +169,8 @@ public class SimpleFunTest {
         final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
                 t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
 
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7).apply(11, 13, 17, 19);
+        final int expected = f.apply(7, 11, 13, 19, 23);
+        final int actual = f.apply(7).apply(11, 13, 19, 23);
 
         assertEquals(expected, actual);
 
@@ -182,8 +182,8 @@ public class SimpleFunTest {
         final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
                 t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
 
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7, 11).apply(13, 17, 19);
+        final int expected = f.apply(7, 11, 13, 19, 23);
+        final int actual = f.apply(7, 11).apply(13, 19, 23);
 
         assertEquals(expected, actual);
 
@@ -195,8 +195,8 @@ public class SimpleFunTest {
         final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
                 t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
 
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7, 11, 13).apply(17, 19);
+        final int expected = f.apply(7, 11, 13, 19, 23);
+        final int actual = f.apply(7, 11, 13).apply(19, 23);
 
         assertEquals(expected, actual);
 
@@ -208,8 +208,8 @@ public class SimpleFunTest {
         final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> f = (
                 t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
 
-        final int expected = f.apply(7, 11, 13, 17, 19);
-        final int actual = f.apply(7, 11, 13, 17).apply(19);
+        final int expected = f.apply(7, 11, 13, 19, 23);
+        final int actual = f.apply(7, 11, 13, 19).apply(23);
 
         assertEquals(expected, actual);
 
