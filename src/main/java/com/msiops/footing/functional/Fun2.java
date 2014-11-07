@@ -16,7 +16,12 @@
  */
 package com.msiops.footing.functional;
 
+@FunctionalInterface
 public interface Fun2<T1, T2, R> {
+
+    default Fun1<T2, R> apply(final T1 t1) {
+        return t2 -> apply(t1, t2);
+    }
 
     R apply(T1 t1, T2 t2);
 
