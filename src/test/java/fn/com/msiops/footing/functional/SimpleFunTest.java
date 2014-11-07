@@ -20,15 +20,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.msiops.footing.functional.Fun1;
 import com.msiops.footing.functional.Fun2;
 import com.msiops.footing.functional.Fun3;
 import com.msiops.footing.functional.Fun4;
 import com.msiops.footing.functional.Fun5;
 
 public class SimpleFunTest {
-
-    private static final Fun1<Integer, Integer> F1 = t1 -> t1;
 
     private static final Fun2<Integer, Integer, Integer> F2 = (t1, t2) -> t1
             + t2;
@@ -41,13 +38,6 @@ public class SimpleFunTest {
 
     private static final Fun5<Integer, Integer, Integer, Integer, Integer, Integer> F5 = (
             t1, t2, t3, t4, t5) -> t1 + t2 + t3 + t4 + t5;
-
-    @Test
-    public void testFun1() {
-
-        assertEquals(7, F1.apply(7).intValue());
-
-    }
 
     @Test
     public void testFun2() {

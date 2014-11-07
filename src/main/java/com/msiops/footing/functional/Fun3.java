@@ -16,6 +16,8 @@
  */
 package com.msiops.footing.functional;
 
+import java.util.function.Function;
+
 @FunctionalInterface
 public interface Fun3<T1, T2, T3, R> {
 
@@ -23,7 +25,7 @@ public interface Fun3<T1, T2, T3, R> {
         return (t2, t3) -> apply(t1, t2, t3);
     }
 
-    default Fun1<T3, R> apply(final T1 t1, final T2 t2) {
+    default Function<T3, R> apply(final T1 t1, final T2 t2) {
         return (t3) -> apply(t1, t2, t3);
     }
 
