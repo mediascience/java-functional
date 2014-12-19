@@ -1,7 +1,9 @@
 Functional Interfaces
 =====================
 
-[![Build Status](https://travis-ci.org/mediascience/java-functional.svg)](https://travis-ci.org/mediascience/java-functional)
+[![Travis-CI Build Status](https://travis-ci.org/mediascience/java-functional.svg)](https://travis-ci.org/mediascience/java-functional)
+
+[![Shippable Build Status](https://api.shippable.com/projects/54937c65d46935d5fbc09d40/badge?branchName=master)](https://app.shippable.com/projects/54937c65d46935d5fbc09d40/builds/latest)
 
 A variety of functional interfaces to augment those
 in java.util.function. Features include:
